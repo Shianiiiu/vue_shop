@@ -8,6 +8,7 @@ html,
 body,
 #app {
   height: 100vh;
+  min-width: 1100px;
 }
 
 .el-breadcrumb {
