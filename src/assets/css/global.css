@@ -19,10 +19,16 @@ body,
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
 }
 
-.el-table {
+.el-table,
+.zk-table {
   margin-top: 15px;
 }
 
 .el-pagination {
   margin-top: 15px;
+}
+
+.el-cascader-menu {
+  height: 300px;
+  width: 150px;
 }

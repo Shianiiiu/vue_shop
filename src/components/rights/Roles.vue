@@ -148,6 +148,7 @@
     </el-dialog>
     <!-- 分配权限弹框 -->
     <el-dialog
+      class="setRight"
       title="分配权限"
       :visible.sync="setRightDialogVisible"
       width="40%"
@@ -219,7 +220,6 @@ export default {
       console.log(this.roleList)
     },
     addRole() {
-      this.addDialogVisible = true
       this.$refs.addFormRef.validate(async (valid) => {
         if (!valid) {
           return
@@ -390,5 +390,16 @@ export default {
 .vcenter {
   display: flex;
   align-items: center;
+}
+::v-deep .setRight .el-dialog {
+  height: 80vh;
+  overflow-y: scroll;
+  position: relative;
+
+  // .el-dialog__footer {
+  //   position: fixed;
+  //   bottom: 45px;
+  //   right: 320px;
+  // }
 }
 </style>

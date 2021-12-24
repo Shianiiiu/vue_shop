@@ -354,7 +354,7 @@ export default {
         return this.$message.error(res.meta.msg)
       }
       this.editForm = res.data
-      console.log(editForm)
+      console.log(this.editForm)
     },
     editFormReset() {
       this.$refs.editFormRef.resetFields()
