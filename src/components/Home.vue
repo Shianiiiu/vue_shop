@@ -72,7 +72,8 @@ export default {
   computed: {
     selectIndex: {
       get: function () {
-        return this.$route.path
+        const tabPathArr = this.$route.fullPath.split('/')
+        return '/' + tabPathArr[1]
       },
       set: function (newVal) {
         return newVal
@@ -102,7 +103,10 @@ export default {
   },
   created() {
     this.getMenuList()
-    this.selectIndex = this.$route.path
+    const tabPathArr = this.$route.fullPath.split('/')
+    // console.log(tabPathArr)
+    this.selectIndex = '/' + tabPathArr[1]
+    // console.log(this.$route)
     console.log(this.selectIndex)
   },
 }
