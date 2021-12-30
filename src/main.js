@@ -7,7 +7,9 @@ import './assets/fonts/iconfont.css'
 import axios from 'axios'
 import treeTable from 'vue-table-with-tree-grid'
 import VueQuillEditor from 'vue-quill-editor'
+import NProgress from 'nprogress'
 
+import 'nprogress/nprogress.css'
 import 'quill/dist/quill.core.css' // import styles
 import 'quill/dist/quill.snow.css' // for snow theme
 import 'quill/dist/quill.bubble.css' // for bubble theme
@@ -19,11 +21,19 @@ Vue.config.productionTip = false
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 //请求拦截器,获取数据权限
 axios.interceptors.request.use(config => {
-  console.log(config)
+  // console.log(config)
+  NProgress.start();
   config.headers.Authorization = sessionStorage.getItem('token')
   return config
 })
+axios.interceptors.response.use(config => {
+  console.log(config);
+  NProgress.done();
+  return config
+})
+
 Vue.prototype.$http = axios
+
 Vue.component('tree-table', treeTable)
 Vue.filter('dateFormat', function (originVal) {
   const dt = new Date(originVal * 1000);
